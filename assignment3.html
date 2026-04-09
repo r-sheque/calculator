@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <title>Free Calculator</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Best Free Calculator on the Web!">
+    <meta name="author" content="Reece Kangas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    </head> 
+    <style>
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+        }
+        td {
+            padding: 10px;
+        }
+        .body {
+           border-radius: 10px;
+                border: 2px solid black;
+                padding: 20px;
+                width: 30%;
+                border-style: dashed;
+                background-color: lightblue;
+        }
+        #total, #input{
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100px;
+           display: inline-block;
+            text-align: center;
+        }
+    </style>
+    <body class="body">
+        <h1 id="header">This is a Free Calculator!</h1>
+        <h2 id="total">Total: 0</h2>
+        <h2 id="input">Input: 0</h2>
+        <br><br>
+        <table>
+            <tr>
+                <td><button onclick="do_math(1)">1</button></td>
+                <td><button onclick="do_math(2)">2</button></td>
+                <td><button onclick="do_math(3)">3</button></td>
+                <td><button onclick="do_math(4)">4</button></td>
+                <td><button onclick="do_math(5)">5</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="do_math(6)">6</button></td>
+                <td><button onclick="do_math(7)">7</button></td>
+                <td><button onclick="do_math(8)">8</button></td>
+                <td><button onclick="do_math(9)">9</button></td>
+                <td><button onclick="do_math(0)">0</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="do_math('-')">-</button></td>
+                <td><button onclick="do_math('+')">+</button></td>
+                <td><button onclick="do_math('*')">*</button></td>
+                <td><button onclick="do_math('/')">/</button></td>
+                <td><button onclick="equals()">=</button></td>
+                <td><button onclick="reset(0)">Reset</button></td>
+            </tr>
+        </table>
+    </body>
+    <script>
+        function updateInput(value){ 
+            document.getElementById("input").innerHTML = "Input: " + value;
+        }
+        function updateTotal(value){
+            document.getElementById("total").innerHTML = "Total: " + value;
+        } 
+        let counter = "";
+        function do_math(value){
+            counter = counter + value;
+            updateInput(counter);
+        }
+        function reset(do_reset){
+            counter = do_reset;
+            updateInput(counter);
+            updateTotal(counter);
+        } 
+        function equals(){
+            let result = eval(counter);
+            updateTotal(result);
+        }
+    </script>  
+</html>
